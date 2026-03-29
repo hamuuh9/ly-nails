@@ -1,3 +1,8 @@
+'use client';
+
+import { useState } from 'react';
+import AnimatedSection from '@/components/AnimatedSection';
+
 const categories = ['All', 'Nail Art', 'Extensions', 'Gel Polish', 'French', 'Minimalist'];
 
 const galleryItems = [
@@ -16,33 +21,46 @@ const galleryItems = [
 ];
 
 export default function GalleryPage() {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const filtered = activeCategory === 'All' ? galleryItems : galleryItems.filter((i) => i.category === activeCategory);
+
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-rose-50 via-white to-pink-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="text-gradient">Gallery</span>
-            </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Browse our collection of nail designs and get inspired for your next appointment. Every set is crafted with precision and creativity.
-            </p>
-          </div>
+      <section className="relative pt-32 pb-20 bg-gray-950 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 left-10 w-96 h-96 bg-pink-500/10 rounded-full blur-[100px]" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <AnimatedSection>
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="inline-block px-4 py-1.5 bg-rose-500/10 border border-rose-500/20 rounded-full text-rose-400 text-sm font-medium mb-6">
+                Portfolio
+              </span>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                Our <span className="gradient-text">Gallery</span>
+              </h1>
+              <p className="text-lg text-gray-400 leading-relaxed">
+                Browse our collection of nail designs. Every set is crafted with precision and creativity.
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Filter Tabs */}
-      <section className="py-8 bg-white border-b border-gray-100">
+      <section className="relative py-8 bg-gray-900 border-b border-white/5 sticky top-20 z-40 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category, index) => (
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((category) => (
               <button
                 key={category}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  index === 0
-                    ? 'bg-rose-500 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-600 hover:bg-rose-100 hover:text-rose-600'
+                onClick={() => setActiveCategory(category)}
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg shadow-rose-500/25'
+                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {category}
@@ -53,62 +71,48 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-20 bg-white">
+      <section className="relative py-24 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {galleryItems.map((item) => (
-              <div
-                key={item.id}
-                className="group relative aspect-square bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300"
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                    {item.emoji}
-                  </span>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {filtered.map((item, index) => (
+              <AnimatedSection key={item.id} delay={index * 50}>
+                <div className="group relative aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden cursor-pointer border border-white/5 hover:border-rose-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-rose-500/10">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-6xl group-hover:scale-125 transition-transform duration-500">
+                      {item.emoji}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                    <p className="text-white font-semibold">{item.title}</p>
+                    <p className="text-rose-400 text-sm">{item.category}</p>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-white font-medium text-sm">{item.title}</p>
-                  <p className="text-rose-200 text-xs">{item.category}</p>
-                </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
       {/* Instagram CTA */}
-      <section className="py-16 bg-rose-50">
+      <section className="relative py-24 bg-gray-950">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Follow Us on Instagram
-          </h2>
-          <p className="text-gray-600 mb-8">
-            See our latest work and get inspired by following @lynailsbirmingham on Instagram.
-          </p>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            @lynailsbirmingham
-          </a>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            See Something You Love?
-          </h2>
-          <p className="text-gray-400 mb-8">
-            Book an appointment and we&apos;ll create a custom design just for you.
-          </p>
-          <a href="/booking" className="btn-primary text-lg px-8 py-4">
-            Book Now
-          </a>
+          <AnimatedSection>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Follow Us on <span className="gradient-text">Instagram</span>
+            </h2>
+            <p className="text-gray-400 mb-10 text-lg">
+              See our latest work and get inspired by following @lynailsbirmingham.
+            </p>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              @lynailsbirmingham
+            </a>
+          </AnimatedSection>
         </div>
       </section>
     </>

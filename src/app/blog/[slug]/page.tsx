@@ -99,10 +99,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   if (!post) {
     return (
-      <div className="pt-32 pb-16 min-h-screen flex items-center justify-center">
+      <div className="pt-32 pb-16 min-h-screen flex items-center justify-center bg-gray-950">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Post Not Found</h1>
-          <p className="text-gray-600 mb-8">The blog post you&apos;re looking for doesn&apos;t exist.</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Post Not Found</h1>
+          <p className="text-gray-400 mb-8">The blog post you&apos;re looking for doesn&apos;t exist.</p>
           <Link href="/blog" className="btn-primary">Back to Blog</Link>
         </div>
       </div>
@@ -112,47 +112,44 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-rose-50 via-white to-pink-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="text-rose-500 hover:text-rose-600 text-sm font-medium mb-6 inline-block">
-            ← Back to Blog
+      <section className="relative pt-32 pb-20 bg-gray-950 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-[100px]" />
+        </div>
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link href="/blog" className="text-rose-400 hover:text-rose-300 text-sm font-medium mb-8 inline-flex items-center transition-colors">
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Blog
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-3 py-1 bg-rose-100 text-rose-600 text-xs font-medium rounded-full">
-              {post.category}
-            </span>
-            <span className="text-sm text-gray-400">{post.date}</span>
-            <span className="text-sm text-gray-400">·</span>
-            <span className="text-sm text-gray-400">{post.readTime}</span>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="px-3 py-1 bg-rose-500/10 text-rose-400 text-xs font-medium rounded-full border border-rose-500/20">{post.category}</span>
+            <span className="text-sm text-gray-500">{post.date}</span>
+            <span className="text-sm text-gray-600">·</span>
+            <span className="text-sm text-gray-500">{post.readTime}</span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-            {post.title}
-          </h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">{post.title}</h1>
         </div>
       </section>
 
       {/* Content */}
-      <section className="py-16 bg-white">
+      <section className="relative py-24 bg-gray-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="aspect-video bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl flex items-center justify-center mb-10">
-            <span className="text-6xl">💅</span>
+          <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center mb-12 border border-white/5">
+            <span className="text-7xl">💅</span>
           </div>
 
-          <article className="prose prose-lg max-w-none">
+          <article className="space-y-6">
             {post.content.map((paragraph, index) => (
-              <p key={index} className="text-gray-600 leading-relaxed mb-6">
-                {paragraph}
-              </p>
+              <p key={index} className="text-gray-400 leading-relaxed text-lg">{paragraph}</p>
             ))}
           </article>
 
-          {/* Share / CTA */}
-          <div className="border-t border-gray-200 mt-12 pt-8">
+          <div className="border-t border-white/10 mt-16 pt-8">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-gray-600">Enjoyed this post? Share it with a friend!</p>
-              <Link href="/booking" className="btn-primary">
-                Book an Appointment
-              </Link>
+              <p className="text-gray-500">Enjoyed this post? Share it with a friend!</p>
+              <Link href="/booking" className="btn-primary">Book an Appointment</Link>
             </div>
           </div>
         </div>
