@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 
@@ -70,15 +71,20 @@ export default function AboutPage() {
             </AnimatedSection>
 
             <AnimatedSection animation="fade-right" delay={200}>
-              <div className="relative bg-gradient-to-br from-rose-500/10 to-pink-500/10 rounded-3xl border border-white/5 p-12 aspect-square flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl" />
-                <div className="relative text-center">
-                  <div className="text-9xl mb-6 animate-float">💅</div>
-                  <p className="text-3xl font-bold text-white mb-2">Since 2019</p>
-                  <p className="text-gray-400">Birmingham, UK</p>
-                </div>
+              <div className="relative bg-gradient-to-br from-rose-500/10 to-pink-500/10 rounded-3xl border border-white/5 aspect-square overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=80"
+                  alt="Ly Nails studio"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-64 border border-rose-500/10 rounded-full animate-spin-slow" />
+                  <div className="w-64 h-64 border border-rose-500/20 rounded-full animate-spin-slow" />
+                </div>
+                <div className="absolute bottom-8 left-0 right-0 text-center">
+                  <p className="text-3xl font-bold text-white mb-1">Since 2019</p>
+                  <p className="text-gray-300">Birmingham, UK</p>
                 </div>
               </div>
             </AnimatedSection>

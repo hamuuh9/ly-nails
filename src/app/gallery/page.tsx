@@ -1,23 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const categories = ['All', 'Nail Art', 'Extensions', 'Gel Polish', 'French', 'Minimalist'];
 
 const galleryItems = [
-  { id: 1, category: 'Nail Art', title: 'Floral Nail Art', emoji: '🌸' },
-  { id: 2, category: 'Extensions', title: 'Long Square Extensions', emoji: '💅' },
-  { id: 3, category: 'French', title: 'Classic French Tips', emoji: '🤍' },
-  { id: 4, category: 'Gel Polish', title: 'Rose Pink Gel', emoji: '🌹' },
-  { id: 5, category: 'Minimalist', title: 'Simple Line Art', emoji: '✨' },
-  { id: 6, category: 'Nail Art', title: 'Abstract Design', emoji: '🎨' },
-  { id: 7, category: 'Extensions', title: 'Stiletto Extensions', emoji: '💎' },
-  { id: 8, category: 'Gel Polish', title: 'Deep Burgundy', emoji: '🍷' },
-  { id: 9, category: 'French', title: 'Coloured French Tips', emoji: '🌈' },
-  { id: 10, category: 'Nail Art', title: 'Glitter Accent', emoji: '✨' },
-  { id: 11, category: 'Minimalist', title: 'Nude with Gold Line', emoji: '💛' },
-  { id: 12, category: 'Gel Polish', title: 'Matte Black', emoji: '🖤' },
+  { id: 1, category: 'Nail Art', title: 'Floral Nail Art', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80' },
+  { id: 2, category: 'Extensions', title: 'Long Square Extensions', image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80' },
+  { id: 3, category: 'French', title: 'Classic French Tips', image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&q=80' },
+  { id: 4, category: 'Gel Polish', title: 'Rose Pink Gel', image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80' },
+  { id: 5, category: 'Minimalist', title: 'Simple Line Art', image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80' },
+  { id: 6, category: 'Nail Art', title: 'Abstract Design', image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&q=80' },
+  { id: 7, category: 'Extensions', title: 'Stiletto Extensions', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80' },
+  { id: 8, category: 'Gel Polish', title: 'Deep Burgundy', image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80' },
+  { id: 9, category: 'French', title: 'Coloured French Tips', image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80' },
+  { id: 10, category: 'Nail Art', title: 'Glitter Accent', image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&q=80' },
+  { id: 11, category: 'Minimalist', title: 'Nude with Gold Line', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80' },
+  { id: 12, category: 'Gel Polish', title: 'Matte Black', image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80' },
 ];
 
 export default function GalleryPage() {
@@ -76,12 +77,13 @@ export default function GalleryPage() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filtered.map((item, index) => (
               <AnimatedSection key={item.id} delay={index * 50}>
-                <div className="group relative aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden cursor-pointer border border-white/5 hover:border-rose-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-rose-500/10">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-6xl group-hover:scale-125 transition-transform duration-500">
-                      {item.emoji}
-                    </span>
-                  </div>
+                <div className="group relative aspect-square bg-gray-800 rounded-2xl overflow-hidden cursor-pointer border border-white/5 hover:border-rose-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-rose-500/10">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                     <p className="text-white font-semibold">{item.title}</p>

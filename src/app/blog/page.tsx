@@ -1,15 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const blogPosts = [
-  { slug: 'how-to-make-your-nails-last-longer', title: 'How to Make Your Nails Last Longer', excerpt: 'Simple tips to extend the life of your manicure and keep nails looking fresh.', category: 'Nail Care', date: '15 Jan 2025', readTime: '3 min' },
-  { slug: 'top-nail-trends-2025', title: 'Top Nail Art Trends for 2025', excerpt: 'From chrome finishes to 3D embellishments — the trends dominating this year.', category: 'Trends', date: '8 Jan 2025', readTime: '4 min' },
-  { slug: 'gel-vs-acrylic-nails', title: 'Gel vs Acrylic Nails', excerpt: 'Not sure which extension type is right for you? We break down the pros and cons.', category: 'Education', date: '28 Dec 2024', readTime: '5 min' },
-  { slug: 'preparing-for-your-nail-appointment', title: 'How to Prepare for Your Appointment', excerpt: 'Get the most out of your salon visit with these simple preparation tips.', category: 'Tips', date: '20 Dec 2024', readTime: '3 min' },
-  { slug: 'nail-health-essentials', title: 'Nail Health Essentials', excerpt: 'Healthy nails are the foundation of any great manicure. Learn the basics.', category: 'Nail Care', date: '12 Dec 2024', readTime: '4 min' },
-  { slug: 'french-manicure-variations', title: '5 French Manicure Variations', excerpt: 'The French manicure is timeless — here are endless ways to make it your own.', category: 'Inspiration', date: '5 Dec 2024', readTime: '3 min' },
+  { slug: 'how-to-make-your-nails-last-longer', title: 'How to Make Your Nails Last Longer', excerpt: 'Simple tips to extend the life of your manicure and keep nails looking fresh.', category: 'Nail Care', date: '15 Jan 2025', readTime: '3 min', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80' },
+  { slug: 'top-nail-trends-2025', title: 'Top Nail Art Trends for 2025', excerpt: 'From chrome finishes to 3D embellishments — the trends dominating this year.', category: 'Trends', date: '8 Jan 2025', readTime: '4 min', image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80' },
+  { slug: 'gel-vs-acrylic-nails', title: 'Gel vs Acrylic Nails', excerpt: 'Not sure which extension type is right for you? We break down the pros and cons.', category: 'Education', date: '28 Dec 2024', readTime: '5 min', image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80' },
+  { slug: 'preparing-for-your-nail-appointment', title: 'How to Prepare for Your Appointment', excerpt: 'Get the most out of your salon visit with these simple preparation tips.', category: 'Tips', date: '20 Dec 2024', readTime: '3 min', image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&q=80' },
+  { slug: 'nail-health-essentials', title: 'Nail Health Essentials', excerpt: 'Healthy nails are the foundation of any great manicure. Learn the basics.', category: 'Nail Care', date: '12 Dec 2024', readTime: '4 min', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80' },
+  { slug: 'french-manicure-variations', title: '5 French Manicure Variations', excerpt: 'The French manicure is timeless — here are endless ways to make it your own.', category: 'Inspiration', date: '5 Dec 2024', readTime: '3 min', image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80' },
 ];
 
 export default function BlogPage() {
@@ -48,8 +49,13 @@ export default function BlogPage() {
                   href={`/blog/${post.slug}`}
                   className="group block bg-white/[0.03] backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden hover:bg-white/[0.06] hover:border-rose-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-rose-500/10 h-full"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-5xl group-hover:scale-125 transition-transform duration-500">💅</span>
+                  <div className="relative aspect-video bg-gray-800 overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent" />
                   </div>
                   <div className="p-6">

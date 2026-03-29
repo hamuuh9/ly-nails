@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import { useCountUp } from '@/hooks/useInView';
@@ -176,11 +177,19 @@ export default function Home() {
                 <div className="relative aspect-[4/5] max-w-md mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500/30 to-pink-500/30 rounded-3xl backdrop-blur-sm border border-white/10" />
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl flex items-center justify-center overflow-hidden">
-                    <div className="text-center p-8">
-                      <div className="text-8xl mb-6 animate-float">💅</div>
-                      <p className="text-2xl font-bold text-white mb-2">Premium Nail Art</p>
-                      <p className="text-gray-400">By Ly Nails Birmingham</p>
-                    </div>
+                    <div className="absolute inset-0">
+                    <Image
+                      src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80"
+                      alt="Beautiful nail art by Ly Nails"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
+                  </div>
+                  <div className="relative text-center p-8">
+                    <p className="text-2xl font-bold text-white mb-2">Premium Nail Art</p>
+                    <p className="text-gray-400">By Ly Nails Birmingham</p>
+                  </div>
                     {/* Decorative elements */}
                     <div className="absolute top-4 right-4 w-20 h-20 bg-rose-500/20 rounded-full blur-xl" />
                     <div className="absolute bottom-4 left-4 w-16 h-16 bg-pink-500/20 rounded-full blur-xl" />
@@ -324,10 +333,18 @@ export default function Home() {
               <div className="relative">
                 <div className="relative bg-gradient-to-br from-rose-500/10 to-pink-500/10 rounded-3xl border border-white/5 p-12 aspect-square flex items-center justify-center overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl" />
+                  <div className="absolute inset-0">
+                    <Image
+                      src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=80"
+                      alt="Quality nail care"
+                      fill
+                      className="object-cover opacity-80"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
+                  </div>
                   <div className="relative text-center">
-                    <div className="text-9xl mb-6 animate-float">✨</div>
                     <p className="text-3xl font-bold text-white mb-2">Quality & Care</p>
-                    <p className="text-gray-400">In every appointment</p>
+                    <p className="text-gray-300">In every appointment</p>
                   </div>
                   {/* Decorative rings */}
                   <div className="absolute inset-0 flex items-center justify-center">

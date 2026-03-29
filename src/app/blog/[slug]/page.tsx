@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const blogPosts: Record<string, { title: string; category: string; date: string; readTime: string; content: string[] }> = {
   'how-to-make-your-nails-last-longer': {
@@ -136,8 +137,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Content */}
       <section className="relative py-24 bg-gray-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center mb-12 border border-white/5">
-            <span className="text-7xl">💅</span>
+          <div className="relative aspect-video bg-gray-800 rounded-2xl overflow-hidden mb-12 border border-white/5">
+            <Image
+              src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&q=80"
+              alt={post.title}
+              fill
+              className="object-cover"
+            />
           </div>
 
           <article className="space-y-6">
