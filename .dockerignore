@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.github
+.env*
+*.md
+.vercel
+.vscode
+.idea
+*.swp
+*.swo
+Dockerfile
+docker-compose.yml
+.netlify
