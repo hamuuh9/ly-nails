@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ly-nails.vercel.app/sitemap.xml
+
+# Block admin/private paths
+Disallow: /api/
