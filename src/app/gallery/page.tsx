@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const categories = ['All', 'Nail Art', 'French Tips', 'Floral', '3D Design', 'Valentine'];
