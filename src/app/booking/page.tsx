@@ -17,19 +17,17 @@ export default function BookingPage() {
 
   if (submitted) {
     return (
-      <div className="pt-32 pb-16 min-h-screen flex items-center justify-center bg-gray-950">
+      <div className="pt-32 pb-16 min-h-screen flex items-center justify-center bg-gradient-to-br from-cream-50 to-blush-50">
         <div className="max-w-md mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-20 h-20 bg-sage-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-10 h-10 text-sage-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-4">Booking Request Sent!</h1>
-          <p className="text-gray-400 mb-2">Thank you, {formData.name}! We&apos;ve received your request.</p>
-          <p className="text-gray-500 text-sm">We&apos;ll confirm at <strong>{selectedDate}</strong> at <strong>{selectedTime}</strong> via phone.</p>
-          <button onClick={() => { setSubmitted(false); setSelectedService(''); setSelectedDate(''); setSelectedTime(''); setFormData({ name: '', email: '', phone: '', notes: '' }); }} className="btn-secondary mt-8">
-            Book Another
-          </button>
+          <h1 className="text-3xl font-bold text-charcoal-800 mb-4">Booking Request Sent!</h1>
+          <p className="text-charcoal-500 mb-2">Thank you, {formData.name}! We&apos;ve received your request.</p>
+          <p className="text-charcoal-400 text-sm">We&apos;ll confirm at <strong>{selectedDate}</strong> at <strong>{selectedTime}</strong> via phone.</p>
+          <button onClick={() => { setSubmitted(false); setSelectedService(''); setSelectedDate(''); setSelectedTime(''); setFormData({ name: '', email: '', phone: '', notes: '' }); }} className="btn-secondary mt-8">Book Another</button>
         </div>
       </div>
     );
@@ -37,50 +35,28 @@ export default function BookingPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-gray-950 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-96 h-96 bg-rose-500/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 left-10 w-96 h-96 bg-pink-500/10 rounded-full blur-[100px]" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-cream-50 via-blush-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto">
-              <span className="inline-block px-4 py-1.5 bg-rose-500/10 border border-rose-500/20 rounded-full text-rose-400 text-sm font-medium mb-6">
-                Booking
-              </span>
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                Book an <span className="gradient-text">Appointment</span>
-              </h1>
-              <p className="text-lg text-gray-400 leading-relaxed">
-                Choose your service, pick a date and time — we can&apos;t wait to see you!
-              </p>
+              <span className="inline-block px-4 py-1.5 bg-blush-100 text-blush-600 text-sm font-medium rounded-full mb-4">Booking</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-charcoal-900 mb-6">Book an <span className="gradient-text">Appointment</span></h1>
+              <p className="text-lg text-charcoal-500">Choose your service, pick a date and time — we can&apos;t wait to see you!</p>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Booking Form */}
-      <section className="relative py-24 bg-gray-900">
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <form onSubmit={handleSubmit} className="space-y-12">
-            {/* Step 1 */}
             <AnimatedSection>
               <div>
-                <h2 className="text-xl font-bold text-white mb-2">1. Choose a Service</h2>
-                <p className="text-gray-500 text-sm mb-6">Select the service you&apos;d like to book.</p>
+                <h2 className="text-xl font-bold text-charcoal-800 mb-2">1. Choose a Service</h2>
+                <p className="text-charcoal-400 text-sm mb-6">Select the service you&apos;d like to book.</p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {services.map((service) => (
-                    <button
-                      key={service}
-                      type="button"
-                      onClick={() => setSelectedService(service)}
-                      className={`p-5 rounded-xl border text-left transition-all duration-300 ${
-                        selectedService === service
-                          ? 'border-rose-500 bg-rose-500/10 text-white shadow-lg shadow-rose-500/10'
-                          : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20 hover:bg-white/[0.07]'
-                      }`}
-                    >
+                    <button key={service} type="button" onClick={() => setSelectedService(service)} className={`p-5 rounded-xl border text-left transition-all duration-300 ${selectedService === service ? 'border-blush-400 bg-blush-50 text-charcoal-800 shadow-soft' : 'border-blush-200 bg-white text-charcoal-500 hover:border-blush-300 hover:bg-blush-50'}`}>
                       <span className="font-medium">{service}</span>
                     </button>
                   ))}
@@ -88,38 +64,20 @@ export default function BookingPage() {
               </div>
             </AnimatedSection>
 
-            {/* Step 2 */}
             <AnimatedSection delay={100}>
               <div>
-                <h2 className="text-xl font-bold text-white mb-2">2. Pick a Date &amp; Time</h2>
-                <p className="text-gray-500 text-sm mb-6">Choose your preferred appointment slot.</p>
+                <h2 className="text-xl font-bold text-charcoal-800 mb-2">2. Pick a Date &amp; Time</h2>
+                <p className="text-charcoal-400 text-sm mb-6">Choose your preferred appointment slot.</p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="date" className="block text-sm font-medium text-gray-400 mb-2">Date</label>
-                    <input
-                      type="date"
-                      id="date"
-                      value={selectedDate}
-                      onChange={(e) => setSelectedDate(e.target.value)}
-                      min={new Date().toISOString().split('T')[0]}
-                      className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent"
-                      required
-                    />
+                    <label htmlFor="date" className="block text-sm font-medium text-charcoal-600 mb-2">Date</label>
+                    <input type="date" id="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} min={new Date().toISOString().split('T')[0]} className="w-full px-5 py-4 bg-blush-50 border border-blush-200 rounded-xl text-charcoal-800 focus:outline-none focus:ring-2 focus:ring-blush-400" required />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Time Slot</label>
-                    <div className="grid grid-cols-3 gap-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                    <label className="block text-sm font-medium text-charcoal-600 mb-2">Time Slot</label>
+                    <div className="grid grid-cols-3 gap-2 max-h-48 overflow-y-auto pr-2">
                       {timeSlots.map((time) => (
-                        <button
-                          key={time}
-                          type="button"
-                          onClick={() => setSelectedTime(time)}
-                          className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                            selectedTime === time
-                              ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg'
-                              : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5'
-                          }`}
-                        >
+                        <button key={time} type="button" onClick={() => setSelectedTime(time)} className={`px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${selectedTime === time ? 'bg-gradient-to-r from-blush-400 to-rose-400 text-white shadow-soft' : 'bg-blush-50 text-charcoal-500 hover:bg-blush-100 border border-blush-200'}`}>
                           {time}
                         </button>
                       ))}
@@ -129,52 +87,46 @@ export default function BookingPage() {
               </div>
             </AnimatedSection>
 
-            {/* Step 3 */}
             <AnimatedSection delay={200}>
               <div>
-                <h2 className="text-xl font-bold text-white mb-2">3. Your Details</h2>
-                <p className="text-gray-500 text-sm mb-6">We&apos;ll use this to confirm your appointment.</p>
+                <h2 className="text-xl font-bold text-charcoal-800 mb-2">3. Your Details</h2>
+                <p className="text-charcoal-400 text-sm mb-6">We&apos;ll use this to confirm your appointment.</p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Full Name *</label>
-                    <input type="text" id="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="Your name" required />
+                    <label htmlFor="name" className="block text-sm font-medium text-charcoal-600 mb-2">Full Name *</label>
+                    <input type="text" id="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-5 py-4 bg-blush-50 border border-blush-200 rounded-xl text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:ring-2 focus:ring-blush-400" placeholder="Your name" required />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-2">Phone *</label>
-                    <input type="tel" id="phone" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="+44..." required />
+                    <label htmlFor="phone" className="block text-sm font-medium text-charcoal-600 mb-2">Phone *</label>
+                    <input type="tel" id="phone" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-5 py-4 bg-blush-50 border border-blush-200 rounded-xl text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:ring-2 focus:ring-blush-400" placeholder="+44..." required />
                   </div>
                 </div>
                 <div className="mt-6">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">Email (optional)</label>
-                  <input type="email" id="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500" placeholder="your@email.com" />
+                  <label htmlFor="email" className="block text-sm font-medium text-charcoal-600 mb-2">Email (optional)</label>
+                  <input type="email" id="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-5 py-4 bg-blush-50 border border-blush-200 rounded-xl text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:ring-2 focus:ring-blush-400" placeholder="your@email.com" />
                 </div>
                 <div className="mt-6">
-                  <label htmlFor="notes" className="block text-sm font-medium text-gray-400 mb-2">Special Requests</label>
-                  <textarea id="notes" rows={3} value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-500 resize-none" placeholder="Design ideas or special requests..." />
+                  <label htmlFor="notes" className="block text-sm font-medium text-charcoal-600 mb-2">Special Requests</label>
+                  <textarea id="notes" rows={3} value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} className="w-full px-5 py-4 bg-blush-50 border border-blush-200 rounded-xl text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:ring-2 focus:ring-blush-400 resize-none" placeholder="Design ideas or special requests..." />
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* Summary */}
             {(selectedService || selectedDate || selectedTime) && (
-              <div className="bg-white/[0.03] border border-white/5 rounded-2xl p-6">
-                <h3 className="font-semibold text-white mb-3">Booking Summary</h3>
-                <div className="space-y-2 text-sm text-gray-400">
-                  {selectedService && <p><strong className="text-rose-400">Service:</strong> {selectedService}</p>}
-                  {selectedDate && <p><strong className="text-rose-400">Date:</strong> {selectedDate}</p>}
-                  {selectedTime && <p><strong className="text-rose-400">Time:</strong> {selectedTime}</p>}
+              <div className="bg-blush-50 border border-blush-200 rounded-2xl p-6">
+                <h3 className="font-semibold text-charcoal-800 mb-3">Booking Summary</h3>
+                <div className="space-y-2 text-sm text-charcoal-600">
+                  {selectedService && <p><strong className="text-blush-600">Service:</strong> {selectedService}</p>}
+                  {selectedDate && <p><strong className="text-blush-600">Date:</strong> {selectedDate}</p>}
+                  {selectedTime && <p><strong className="text-blush-600">Time:</strong> {selectedTime}</p>}
                 </div>
               </div>
             )}
 
-            <button
-              type="submit"
-              disabled={!selectedService || !selectedDate || !selectedTime || !formData.name || !formData.phone}
-              className="btn-primary w-full py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none disabled:hover:shadow-none"
-            >
+            <button type="submit" disabled={!selectedService || !selectedDate || !selectedTime || !formData.name || !formData.phone} className="btn-primary w-full py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed">
               Request Booking
             </button>
-            <p className="text-center text-sm text-gray-500">We&apos;ll confirm via phone. No payment required now.</p>
+            <p className="text-center text-sm text-charcoal-400">We&apos;ll confirm via phone. No payment required now.</p>
           </form>
         </div>
       </section>
