@@ -45,7 +45,7 @@ export default function AboutPage() {
             </AnimatedSection>
             <AnimatedSection animation="fade-right" delay={200}>
               <div className="relative bg-gradient-to-br from-blush-100 to-cream-100 rounded-3xl aspect-square overflow-hidden shadow-soft">
-                <Image src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=80" alt="Ly Nails studio" fill className="object-cover" />
+                <Image src="/images/ly-nails-6.jpg" alt="Ly Nails studio" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cream-100/80 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-0 right-0 text-center">
                   <p className="text-3xl font-bold text-charcoal-800 mb-1">Since 2019</p>

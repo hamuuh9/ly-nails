@@ -118,8 +118,8 @@ export default function Home() {
                 <div className="relative aspect-[4/5] max-w-md mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-blush-200 to-blush-300 rounded-3xl overflow-hidden shadow-soft-lg">
                     <Image
-                      src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80"
-                      alt="Beautiful nail art by Ly Nails"
+                      src="/images/ly-nails-4.jpg"
+                      alt="Beautiful nail art by Ly Nails Birmingham"
                       fill
                       className="object-cover"
                     />
@@ -265,8 +265,8 @@ export default function Home() {
               <div className="relative">
                 <div className="relative bg-gradient-to-br from-blush-100 to-cream-100 rounded-3xl aspect-square overflow-hidden shadow-soft">
                   <Image
-                    src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=80"
-                    alt="Quality nail care"
+                    src="/images/ly-nails-3.jpg"
+                    alt="Quality nail care by Ly Nails"
                     fill
                     className="object-cover"
                   />

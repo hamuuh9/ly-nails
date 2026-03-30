@@ -130,7 +130,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="aspect-video bg-blush-100 rounded-2xl overflow-hidden mb-12">
-            <Image src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&q=80" alt={post.title} width={1200} height={675} className="object-cover w-full h-full" />
+            <Image src="/images/ly-nails-1.jpg" alt={post.title} width={1200} height={675} className="object-cover w-full h-full" />
           </div>
 
           <article className="space-y-6">

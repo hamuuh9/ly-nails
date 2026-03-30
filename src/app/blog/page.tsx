@@ -5,12 +5,12 @@ import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const blogPosts = [
-  { slug: 'how-to-make-your-nails-last-longer', title: 'How to Make Your Nails Last Longer', excerpt: 'Simple tips to extend the life of your manicure.', category: 'Nail Care', date: '15 Jan 2025', readTime: '3 min', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80' },
-  { slug: 'top-nail-trends-2025', title: 'Top Nail Art Trends for 2025', excerpt: 'The trends dominating this year.', category: 'Trends', date: '8 Jan 2025', readTime: '4 min', image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80' },
-  { slug: 'gel-vs-acrylic-nails', title: 'Gel vs Acrylic Nails', excerpt: 'Which extension type is right for you?', category: 'Education', date: '28 Dec 2024', readTime: '5 min', image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80' },
-  { slug: 'preparing-for-your-nail-appointment', title: 'How to Prepare for Your Appointment', excerpt: 'Get the most out of your salon visit.', category: 'Tips', date: '20 Dec 2024', readTime: '3 min', image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&q=80' },
-  { slug: 'nail-health-essentials', title: 'Nail Health Essentials', excerpt: 'Healthy nails are the foundation of any great manicure.', category: 'Nail Care', date: '12 Dec 2024', readTime: '4 min', image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80' },
-  { slug: 'french-manicure-variations', title: '5 French Manicure Variations', excerpt: 'Endless ways to make the French manicure your own.', category: 'Inspiration', date: '5 Dec 2024', readTime: '3 min', image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80' },
+  { slug: 'how-to-make-your-nails-last-longer', title: 'How to Make Your Nails Last Longer', excerpt: 'Simple tips to extend the life of your manicure.', category: 'Nail Care', date: '15 Jan 2025', readTime: '3 min', image: '/images/ly-nails-1.jpg' },
+  { slug: 'top-nail-trends-2025', title: 'Top Nail Art Trends for 2025', excerpt: 'The trends dominating this year.', category: 'Trends', date: '8 Jan 2025', readTime: '4 min', image: '/images/ly-nails-2.jpg' },
+  { slug: 'gel-vs-acrylic-nails', title: 'Gel vs Acrylic Nails', excerpt: 'Which extension type is right for you?', category: 'Education', date: '28 Dec 2024', readTime: '5 min', image: '/images/ly-nails-5.jpg' },
+  { slug: 'preparing-for-your-nail-appointment', title: 'How to Prepare for Your Appointment', excerpt: 'Get the most out of your salon visit.', category: 'Tips', date: '20 Dec 2024', readTime: '3 min', image: '/images/ly-nails-6.jpg' },
+  { slug: 'nail-health-essentials', title: 'Nail Health Essentials', excerpt: 'Healthy nails are the foundation of any great manicure.', category: 'Nail Care', date: '12 Dec 2024', readTime: '4 min', image: '/images/ly-nails-3.jpg' },
+  { slug: 'french-manicure-variations', title: '5 French Manicure Variations', excerpt: 'Endless ways to make the French manicure your own.', category: 'Inspiration', date: '5 Dec 2024', readTime: '3 min', image: '/images/ly-nails-7.jpg' },
 ];
 
 export default function BlogPage() {
