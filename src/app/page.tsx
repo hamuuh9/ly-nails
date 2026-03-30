@@ -118,7 +118,7 @@ export default function Home() {
                 <div className="relative aspect-[4/5] max-w-md mx-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-blush-200 to-blush-300 rounded-3xl overflow-hidden shadow-soft-lg">
                     <Image
-                      src="/images/ly-nails-4.jpg"
+                      src="/images/ly-nails-1.jpg"
                       alt="Beautiful nail art by Ly Nails Birmingham"
                       fill
                       className="object-cover"
@@ -265,15 +265,15 @@ export default function Home() {
               <div className="relative">
                 <div className="relative bg-gradient-to-br from-blush-100 to-cream-100 rounded-3xl aspect-square overflow-hidden shadow-soft">
                   <Image
-                    src="/images/ly-nails-3.jpg"
-                    alt="Quality nail care by Ly Nails"
+                    src="/images/salon-interior.jpg"
+                    alt="Ly Nails Birmingham salon interior"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-cream-100/80 via-cream-100/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/70 via-charcoal-900/20 to-transparent" />
                   <div className="absolute bottom-8 left-0 right-0 text-center">
-                    <p className="text-3xl font-bold text-charcoal-800 mb-1">Quality & Care</p>
-                    <p className="text-charcoal-500">In every appointment</p>
+                    <p className="text-3xl font-bold text-white mb-1 drop-shadow-lg">Our Studio</p>
+                    <p className="text-white/90 drop-shadow">A clean, welcoming space for you</p>
                   </div>
                 </div>
               </div>
