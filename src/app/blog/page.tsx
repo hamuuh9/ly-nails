@@ -60,7 +60,7 @@ export default function BlogPage() {
           <AnimatedSection>
             <h2 className="text-4xl font-bold mb-6">Stay <span className="text-gold-300">Updated</span></h2>
             <p className="text-white/90 mb-10">Get nail care tips and inspiration delivered to your inbox.</p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
               <input type="email" placeholder="Your email" className="flex-1 px-5 py-4 rounded-full border-0 text-charcoal-800 placeholder-charcoal-400 focus:outline-none focus:ring-2 focus:ring-gold-400" />
               <button type="submit" className="btn-gold whitespace-nowrap">Subscribe</button>
             </form>

@@ -62,7 +62,7 @@ export default function ContactPage() {
             <AnimatedSection animation="fade-right" delay={200}>
               <div>
                 <h2 className="text-2xl font-bold text-charcoal-800 mb-8">Send a Message</h2>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-charcoal-600 mb-2">Name</label>

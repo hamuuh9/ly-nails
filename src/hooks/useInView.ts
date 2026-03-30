@@ -37,13 +37,18 @@ export function useCountUp(end: number, duration: number = 2000, startOnView: bo
     hasStarted.current = true;
 
     let startTime: number | null = null;
+    let animationId: number;
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       setCount(Math.floor(progress * end));
-      if (progress < 1) requestAnimationFrame(animate);
+      if (progress < 1) {
+        animationId = requestAnimationFrame(animate);
+      }
     };
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationId);
   }, [isInView, end, duration, startOnView]);
 
   return { ref, count };
