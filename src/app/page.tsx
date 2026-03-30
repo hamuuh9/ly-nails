@@ -145,8 +145,14 @@ export default function Home() {
                 <div className="absolute -top-4 -right-4 glass-card p-4 animate-float shadow-soft" style={{ animationDelay: '2s' }}>
                   <div className="flex items-center space-x-3">
                     <div className="flex -space-x-2">
-                      {[...Array(3)].map((_, i) => (
-                        <div key={i} className="w-8 h-8 bg-gradient-to-br from-blush-300 to-blush-400 rounded-full border-2 border-white" />
+                      {[
+                        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+                        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80',
+                        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80',
+                      ].map((src, i) => (
+                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white overflow-hidden">
+                          <Image src={src} alt="Happy client" width={32} height={32} className="w-full h-full object-cover" />
+                        </div>
                       ))}
                     </div>
                     <div>
